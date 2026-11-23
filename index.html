@@ -2,77 +2,217 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Semaver Games | Online Kart ve Masa Oyunları</title>
-  <meta name="description" content="Semaver Games: arkadaşlarınla ücretsiz online kart ve masa oyunları. İlk oyunumuz Yanık Masası yayında, üyelik gerekmeden hemen oyna.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Semaver Games | Arkadaşlarınla Online Kart ve Masa Oyunları</title>
+  <meta name="description" content="Semaver Games'te kart ve masa oyunlarını tarayıcıdan, indirmeden oyna. Üyelik şart değil: masayı kur, kodu arkadaşına gönder. İlk oyunumuz Yanık Masası yayında.">
   <link rel="canonical" href="https://semavergames.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#17301f">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Semaver Games">
-  <meta property="og:title" content="Semaver Games">
-  <meta property="og:description" content="Arkadaşlarınla ücretsiz online kart ve masa oyunları. İlk oyunumuz Yanık Masası yayında.">
+  <meta property="og:title" content="Semaver Games: çay demlendi, masa kuruldu">
+  <meta property="og:description" content="Kart ve masa oyunlarını tarayıcıdan, indirmeden oyna. Masayı kur, kodu arkadaşına gönder. İlk oyunumuz Yanık Masası yayında.">
   <meta property="og:url" content="https://semavergames.com/">
   <meta property="og:image" content="https://semavergames.com/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="tr_TR">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap">
   <link rel="stylesheet" href="/ui-kit/tokens.css">
   <link rel="stylesheet" href="/ui-kit/components.css">
-  <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; }
-    body {
-      background: radial-gradient(1100px 620px at 50% -8%, #24553a, var(--bg-table) 60%, var(--bg-table-deep));
-      background-color: var(--bg-table);
-      color: var(--text-on-dark);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      display: flex; flex-direction: column; align-items: center;
-      padding: var(--space-8) var(--space-4) var(--space-6);
-      min-height: 100vh;
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://semavergames.com/#org",
+      "name": "Semaver Games",
+      "url": "https://semavergames.com/",
+      "logo": "https://semavergames.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://semavergames.com/#site",
+      "url": "https://semavergames.com/",
+      "name": "Semaver Games",
+      "inLanguage": "tr",
+      "publisher": {
+        "@id": "https://semavergames.com/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Semaver Games ücretli mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, oynamak ücretsiz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Oynamak için üye olmam gerekir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, üye olmadan hemen oynayabilirsin. İlerlemene başka cihazdan da ulaşmak istersen sonradan giriş yaparsın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bir şey indirmem gerekir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Oyunlar tarayıcıda açılır, bir şey kurmana gerek yok."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Arkadaşlarımla aynı masada nasıl oynarım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oyunda \"Masa Kur\"a bas, masanın kodunu arkadaşlarına gönder. Onlar da kodu girip masana oturur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi oyunlar var?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Şimdilik Yanık Masası var. Sırada 101, Tavla, Okey, Batak ve Pişti bulunuyor."
+          }
+        }
+      ]
     }
-    main { width: 100%; max-width: 520px; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; }
-    .logo { width: min(260px, 70vw); height: auto; }
-    h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-    .lead { margin: 0; font-size: 17px; line-height: 26px; color: var(--text-on-dark-muted); max-width: 34ch; text-wrap: balance; }
-    .game {
-      width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--space-4);
-      padding: var(--space-6) var(--space-4);
-      background: var(--surface-panel); color: var(--text-on-panel);
-      border: 2px solid var(--trim-gold); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel);
-    }
-    .game img { width: min(300px, 100%); height: auto; }
-    .game p { margin: 0; font-size: 15px; line-height: 23px; font-weight: 600; max-width: 32ch; }
-    .soon { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
-    .soon li { padding: 4px var(--space-3); border: 1px solid var(--trim-gold); border-radius: var(--radius-pill); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--trim-gold-light); }
-    .soon-title { margin: 0 0 var(--space-2); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--text-on-dark-muted); }
-    footer { margin-top: auto; padding-top: var(--space-8); font-size: 12px; line-height: 16px; color: var(--text-on-dark-muted); }
-  </style>
+  ]
+}
+  </script>
 </head>
 <body>
-  <main>
-    <img class="logo" src="/assets/logo-stacked-on-dark.svg" alt="Semaver Games" width="260" height="179">
-    <h1>Semaver Games</h1>
-    <p class="lead">Arkadaşlarınla ücretsiz online kart ve masa oyunları. Üyelik yok, bekleme yok, masayı kur ve oyna.</p>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/" aria-current="page"><img src="/ui-kit/logos/mark-small-on-dark.svg" alt="" width="34" height="34">Semaver Games</a>
+      <nav aria-label="Ana menü">
+        <a href="/yanik/">Yanık</a>
+        <a href="#sss">Sorular</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="game" aria-labelledby="yanik">
-      <img src="/assets/game-yanik-masasi.svg" alt="Yanık Masası" id="yanik" width="300" height="105">
-      <p>İlk oyunumuz yayında. Linki arkadaşlarına gönder, hemen aynı masada oynayın.</p>
-      <a class="sg-btn sg-btn--hex sg-btn--lg" href="https://oyun.yanikmasasi.com/" target="_blank" rel="noopener">Yanık Oyna</a>
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <img class="hero__logo" src="/assets/logo-stacked-on-dark.svg" alt="Semaver Games" width="230" height="158">
+        <h1>Çay demlendi, masa kuruldu.</h1>
+        <p class="lead">Kart ve masa oyunlarını arkadaşlarınla, tarayıcıdan oyna. İndirme yok, üyelik şart değil. Masayı kur, kodu gönder, oyun başlasın.</p>
+        <div class="cta">
+          <a class="sg-btn sg-btn--hex sg-btn--lg" href="https://oyun.yanikmasasi.com/" target="_blank" rel="noopener">Yanık Oyna</a>
+          <a class="sg-btn sg-btn--secondary" href="/yanik/">Oyunu Tanı</a>
+        </div>
+        <p class="note">Ücretsiz. Üye olmadan hemen başla.</p>
+      </div>
+    </div>
+
+    <section aria-labelledby="oyunlar">
+      <div class="wrap">
+        <p class="kicker">Oyunlar</p>
+        <h2 id="oyunlar">İlk masamız: Yanık</h2>
+        <p class="sub">Türkiye'nin en sevilen kâğıt oyunlarından biri. Bilmiyorsan dert değil, oyunun içinde oynaya oynaya öğrenirsin.</p>
+        <div class="panel game">
+          <a href="/yanik/"><img class="game__logo" src="/assets/game-yanik-masasi.svg" alt="Yanık Masası" width="320" height="112"></a>
+          <div class="game__body">
+            <h3>Yanık Masası</h3>
+            <p>Kartlarını seri ve per yap, eli ilk sen bitir. Burada puan ceza demek: 100'ü bulan yanar, masada son kalan kazanır.</p>
+            <ul class="facts">
+              <li>2 ila 4 oyuncu</li>
+              <li>106 kart</li>
+              <li>4 oyun modu</li>
+            </ul>
+            <div class="cta">
+              <a class="sg-btn" href="https://oyun.yanikmasasi.com/" target="_blank" rel="noopener">Hemen Oyna</a>
+              <a class="sg-btn sg-btn--secondary" href="/yanik/">Kurallar ve Detaylar</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div>
-      <p class="soon-title">Yakında</p>
-      <ul class="soon">
-        <li>101</li><li>Tavla</li><li>Okey</li><li>Batak</li><li>Pişti</li>
-      </ul>
-    </div>
+    <section aria-labelledby="neden">
+      <div class="wrap">
+        <p class="kicker">Neden Semaver?</p>
+        <h2 id="neden">Oyuna girmek bu kadar kolay</h2>
+        <p class="sub">Form doldurmak, bir şey kurmak, sıra beklemek yok. Tıkla, masadasın.</p>
+        <div class="grid">
+          <div class="feature"><h3>İndirme yok</h3><p>Oyun tarayıcıda açılır. Uygulama indirmekle uğraşmazsın.</p></div>
+          <div class="feature"><h3>Üyelik şart değil</h3><p>Üye olmadan oynamaya başlarsın. İlerlemen kaybolmasın istersen sonradan giriş yaparsın.</p></div>
+          <div class="feature"><h3>Arkadaşınla aynı masa</h3><p>Masanı kur, kodunu gönder. Arkadaşların kodu girer, karşına oturur.</p></div>
+          <div class="feature"><h3>Oynayarak öğren</h3><p>Kuralları bilmiyor musun? Öğretici ilk elini seninle birlikte oynar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="nasil">
+      <div class="wrap">
+        <p class="kicker">Nasıl başlarım?</p>
+        <h2 id="nasil">Üç adımda masadasın</h2>
+        <ol class="steps">
+          <li><h3>Oyunu aç</h3><p>"Yanık Oyna"ya bas, oyun yeni sekmede açılsın. Üye olmana gerek yok.</p></li>
+          <li><h3>Masanı seç</h3><p>"Hemen Oyna" ile boş bir masaya otur ya da "Masa Kur" ile kendi masanı aç.</p></li>
+          <li><h3>Arkadaşlarını çağır</h3><p>Masanın kodunu gönder, onlar da girip yanına otursun.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="yakinda">
+      <div class="wrap">
+        <p class="kicker">Yakında</p>
+        <h2 id="yakinda">Yeni oyunlar yolda</h2>
+        <p class="sub">Sırada bunlar var.</p>
+        <ul class="soon">
+          <li>101</li>
+          <li>Tavla</li>
+          <li>Okey</li>
+          <li>Batak</li>
+          <li>Pişti</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="sss">
+      <div class="wrap">
+        <p class="kicker">Sorular</p>
+        <h2 id="sss">Sık sorulanlar</h2>
+        <div class="panel faq">
+          <details open><summary>Semaver Games ücretli mi?</summary><p>Hayır, oynamak ücretsiz.</p></details>
+          <details><summary>Oynamak için üye olmam gerekir mi?</summary><p>Hayır, üye olmadan hemen oynayabilirsin. İlerlemene başka cihazdan da ulaşmak istersen sonradan giriş yaparsın.</p></details>
+          <details><summary>Bir şey indirmem gerekir mi?</summary><p>Hayır. Oyunlar tarayıcıda açılır, bir şey kurmana gerek yok.</p></details>
+          <details><summary>Arkadaşlarımla aynı masada nasıl oynarım?</summary><p>Oyunda "Masa Kur"a bas, masanın kodunu arkadaşlarına gönder. Onlar da kodu girip masana oturur.</p></details>
+          <details><summary>Hangi oyunlar var?</summary><p>Şimdilik <a href="/yanik/">Yanık Masası</a> var. Sırada 101, Tavla, Okey, Batak ve Pişti bulunuyor.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="kapanis">
+      <div class="wrap">
+        <h2 id="kapanis">Masa hazır, bir sen eksiksin</h2>
+        <p>Çayını al, yerine otur. İlk el seni bekliyor.</p>
+        <a class="sg-btn sg-btn--hex sg-btn--lg" href="https://oyun.yanikmasasi.com/" target="_blank" rel="noopener">Yanık Oyna</a>
+      </div>
+    </section>
   </main>
-  <footer>© 2026 Semaver Games</footer>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Semaver Games</span>
+      <span><a href="/yanik/">Yanık Masası</a></span>
+    </div>
+  </footer>
+
   <script src="/ui-kit/components.js"></script>
   <script>
     document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
