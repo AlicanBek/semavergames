@@ -1,17 +1,15 @@
-# Semaver Games UI Kit
+# Dem UI kit (generated)
 
-Shared menu and shell UI for every Semaver Games title (lobby, shop, settings, rewards, modals). Gameplay UI is not covered.
+Everything in this folder is generated from `ui-kit-src/` by `python3 ui-kit-src/build.py`. Do not edit these files by hand; your changes will be overwritten.
 
 | File | What it is |
 |---|---|
-| `tokens.json` | Source of truth for colors, type, spacing, radius and shadows. Each token has a usage note. |
-| `tokens.css` | The same tokens as CSS custom properties, generated from `tokens.json`. |
-| `components.css` | The `sg-` component classes (buttons, switch, tabs, cards, modal, shop item, settings rows, nav). |
-| `components.js` | Draws the pointed outline of the faceted button and play banner as SVG. |
-| `index.html` | The browsable version of the kit, at semavergames.com/ui-kit/. Generated; not indexed by search engines. |
-| `logos/` | The Semaver Games logo files, game logos and emblems as SVG. |
-| `GUIDELINES.md` | The rules: what each color means, type, copy, behavior. |
+| `index.html` | The browsable kit, at semavergames.com/ui-kit/. Not indexed by search engines. |
+| `tokens.json` | Colors, type, spacing, radius and shadows, each with a usage note. |
+| `tokens.css` | The same tokens as CSS custom properties. |
+| `components.css` | The `sg-` component classes. |
+| `components.js` | Draws the pointed outline of the faceted button and play banner. |
+| `GUIDELINES.md` | The rules: brand, what colors mean, type, writing, behavior. |
+| `logos/` | Semaver Games logos, game logos and emblems as SVG. |
 
 On the web, load `tokens.css`, `components.css` and `components.js`, and set `lang="tr"` on the page. In the React Native app, read values from `tokens.json` and treat `components.css` as the visual spec.
-
-Change `tokens.json` first, then regenerate `tokens.css`. Do not edit `tokens.css` by hand.

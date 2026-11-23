@@ -1,0 +1,19 @@
+<!-- @dsCard group="Actions" height=80 -->
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><title>Switch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
+</head>
+<body class="sg-stage">
+<button class="sg-switch" role="switch" aria-checked="true" aria-label="Oyun sesleri" id="s1"></button>
+<button class="sg-switch" role="switch" aria-checked="false" aria-label="Bildirimler" id="s2"></button>
+<button class="sg-switch" role="switch" aria-checked="false" aria-label="Kilitli ayar" disabled></button>
+<script>
+document.querySelectorAll('.sg-switch:not([disabled])').forEach(function (s) {
+  s.addEventListener('click', function () {
+    s.setAttribute('aria-checked', s.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+  });
+});
+</script>
+</body>
+</html>

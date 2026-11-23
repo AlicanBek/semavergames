@@ -1,0 +1,40 @@
+<!-- @dsCard group="Surfaces" height=400 -->
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><title>SettingsRow</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
+</head>
+<body class="sg-stage sg-stage--stack">
+<section class="sg-panel">
+  <h3 class="sg-panel__title">Oyun</h3>
+  <div class="sg-rule" aria-hidden="true"><span></span></div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Oyun sesleri</div><div class="sg-row__hint">Kart, sıra ve bitiş sesleri</div></div>
+    <button class="sg-switch" role="switch" aria-checked="true" aria-label="Oyun sesleri"></button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Bildirimler</div><div class="sg-row__hint">Davet ve günlük ödül hatırlatması</div></div>
+    <button class="sg-switch" role="switch" aria-checked="false" aria-label="Bildirimler"></button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Arkadaş kodun</div><div class="sg-row__hint">Arkadaşların seni bu kodla ekler</div></div>
+    <span class="sg-code">JJ6NLB</span>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Kurallar</div><div class="sg-row__hint">Yanık kuralları, soru-cevap</div></div>
+    <button class="sg-btn sg-btn--secondary sg-btn--sm">Aç</button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Hesabımı sil</div><div class="sg-row__hint">Paran, ürünlerin ve ilerlemen kalıcı olarak silinir</div></div>
+    <button class="sg-btn sg-btn--danger sg-btn--sm">Sil</button>
+  </div>
+</section>
+<script>
+document.querySelectorAll('.sg-switch').forEach(function (s) {
+  s.addEventListener('click', function () {
+    s.setAttribute('aria-checked', s.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+  });
+});
+</script>
+</body>
+</html>

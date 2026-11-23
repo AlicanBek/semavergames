@@ -1,5 +1,6 @@
 # The UI kit is an internal reference. Search engines are kept out by a noindex tag
 # on the page (they must be able to fetch it to see that tag). AI crawlers are blocked here.
+# /ui-kit-src/ is the kit's source files, not pages, and is closed to all crawlers.
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -14,8 +15,10 @@ User-agent: CCBot
 User-agent: Bytespider
 User-agent: meta-externalagent
 Disallow: /ui-kit/
+Disallow: /ui-kit-src/
 
 User-agent: *
+Disallow: /ui-kit-src/
 Allow: /
 
 Sitemap: https://semavergames.com/sitemap.xml

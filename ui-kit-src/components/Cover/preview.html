@@ -1,0 +1,92 @@
+<!-- @dsCard height=320 -->
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Semaver Games</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--bg-table); color:var(--text-on-dark); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:320px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:320px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:320px; }
+  .red { fill:var(--action-primary); }
+  .cream { fill:var(--surface-panel); }
+  .night { fill:var(--surface-night); }
+  .gold { fill:var(--trim-gold); }
+  .heading { fill:var(--text-heading); }
+  .blk { rx:var(--radius-lg); }
+  .tile { rx:var(--radius-sm); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:84px; line-height:.95; font-weight:900; letter-spacing:-.02em; color:var(--text-on-dark); }
+  .tag { margin:var(--space-3) 0 0 4px; font-size:14px; line-height:20px; font-weight:600; color:var(--text-on-dark-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 320" width="480" height="320">
+<!--
+  blocks      action-primary 144x272 bled off the top (the button red, largest) · surface-panel 136x184 (the cream panel) · surface-night 160x248 bleeding off the right edge · trim-gold 136x40 once (gold is trim, so it stays small) - about a third of 960x320
+  arrangement one tall red slab with satellites, bottoms on one line space-6 above the edge, space-4 gutters
+  pattern     the literal motif: cards dealt on a table. Card-proportioned tiles (20x28) at a space-8 pitch, cream on the red slab, heading red on the cream block, gold on the night block, a few left out like a hand being played
+  scales      gutters space-4; pitch space-8; block corners radius-lg; tile corners radius-sm
+-->
+<rect class="red blk" x="16" y="-16" width="144" height="312" rx="16"/>
+<rect class="gold blk" x="176" y="56" width="136" height="40" rx="16"/>
+<rect class="cream blk" x="176" y="112" width="136" height="184" rx="16"/>
+<rect class="night blk" x="328" y="48" width="184" height="248" rx="16"/>
+<rect class="tile cream" x="34" y="24" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="66" y="24" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="98" y="24" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="34" y="64" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="66" y="64" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="98" y="64" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="130" y="64" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="66" y="104" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="98" y="104" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="130" y="104" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="34" y="144" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="66" y="144" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="130" y="144" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="34" y="184" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="66" y="184" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="98" y="184" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="130" y="184" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="34" y="224" width="20" height="28" rx="6"/>
+<rect class="tile cream" x="98" y="224" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="196" y="132" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="260" y="132" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="196" y="172" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="228" y="172" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="260" y="172" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="196" y="212" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="228" y="212" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="228" y="252" width="20" height="28" rx="6"/>
+<rect class="tile heading" x="260" y="252" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="380" y="72" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="412" y="72" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="444" y="72" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="348" y="112" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="380" y="112" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="444" y="112" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="348" y="152" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="380" y="152" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="412" y="152" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="444" y="152" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="348" y="192" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="380" y="192" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="412" y="192" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="348" y="232" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="412" y="232" width="20" height="28" rx="6"/>
+<rect class="tile gold" x="444" y="232" width="20" height="28" rx="6"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Semaver<br>Games</h1>
+<p class="tag">Menü ve arayüz bileşenleri. Tüm oyunlarda aynı masa.</p>
+</div>
+</div>
+</body>
+</html>

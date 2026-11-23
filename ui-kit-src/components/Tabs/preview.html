@@ -1,0 +1,25 @@
+<!-- @dsCard group="Actions" height=80 -->
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><title>Tabs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
+</head>
+<body class="sg-stage">
+<div class="sg-tabs" role="tablist" aria-label="Mağaza kategorileri">
+  <button class="sg-tab" role="tab" aria-selected="true">Deste</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Masa</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Çerçeve</button>
+  <button class="sg-tab" role="tab" aria-selected="false">İsim</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Kart Yüzü</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Efekt</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Kazı Kazan</button>
+</div>
+<script>
+document.querySelectorAll('.sg-tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.sg-tab').forEach(function (o) { o.setAttribute('aria-selected', o === t ? 'true' : 'false'); });
+  });
+});
+</script>
+</body>
+</html>

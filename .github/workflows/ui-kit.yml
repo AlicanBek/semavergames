@@ -1,0 +1,28 @@
+name: UI kit is up to date
+
+on:
+  pull_request:
+    paths: ['ui-kit-src/**', 'ui-kit/**']
+  push:
+    branches: [main]
+    paths: ['ui-kit-src/**', 'ui-kit/**']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild the kit from source
+        run: python3 ui-kit-src/build.py
+      - name: Fail if ui-kit/ does not match the source
+        run: |
+          if ! git diff --exit-code -- ui-kit; then
+            echo "::error::ui-kit/ is out of date. Run 'python3 ui-kit-src/build.py' and commit the result."
+            exit 1
+          fi

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wordmark outliner</title>
+</head>
+<body>
+<p>Converts the wordmark text to outlines so the logo files do not depend on a font being installed.</p>
+<pre id="out">working…</pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.4/opentype.min.js"></script>
+<script>
+(async function () {
+  const base = 'https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.8/files/';
+  async function load(file) {
+    const buf = await (await fetch(base + file)).arrayBuffer();
+    return opentype.parse(buf);
+  }
+  function outline(font, text, size, spacing) {
+    const opts = { letterSpacing: spacing };
+    const path = font.getPath(text, 0, 0, size, opts);
+    const box = path.getBoundingBox();
+    return { d: path.toPathData(2), x1: box.x1, y1: box.y1, x2: box.x2, y2: box.y2 };
+  }
+  try {
+    const black = await load('montserrat-latin-900-normal.woff');
+    const bold = await load('montserrat-latin-700-normal.woff');
+    const medium = await load('montserrat-latin-500-normal.woff');
+    window.__out = {
+      semaver: outline(black, 'SEMAVER', 100, 0.04),
+      games: outline(bold, 'GAMES', 100, 0.42),
+      yanik: outline(black, 'YANIK', 100, 0.018),
+      masasi: outline(black, 'MASASI', 100, 0.018),
+    };
+    document.getElementById('out').textContent = 'done';
+  } catch (e) {
+    window.__out = { error: String(e) };
+    document.getElementById('out').textContent = String(e);
+  }
+})();
+</script>
+</body>
+</html>
