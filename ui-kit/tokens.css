@@ -1,0 +1,69 @@
+/* Semaver Games UI Kit. Generated from tokens.json, do not edit by hand. */
+:root {
+  /* color */
+  --bg-table: #17301f;
+  --bg-table-deep: #0a2f1c;
+  --surface-panel: #fbf0d8;
+  --surface-panel-inset: #f1ddb0;
+  --surface-night: #140c0a;
+  --action-primary: #c0261f;
+  --action-primary-pressed: #9e2019;
+  --action-primary-deep: #4a0a07;
+  --action-confirm: #2f6b47;
+  --action-confirm-deep: #1b3f2a;
+  --action-neutral: #6b5d4e;
+  --action-neutral-deep: #3d342b;
+  --primary-top: #c8322a;
+  --primary-mid: #8e1b14;
+  --primary-bottom: #5e0d09;
+  --primary-lip: #450906;
+  --confirm-top: #3f8a5c;
+  --confirm-mid: #2a6140;
+  --confirm-bottom: #1b3f2a;
+  --confirm-lip: #12301f;
+  --neutral-top: #8a7964;
+  --neutral-mid: #6b5d4e;
+  --neutral-bottom: #4e4337;
+  --neutral-lip: #2f271f;
+  --locked-top: #a39582;
+  --locked-mid: #8a7964;
+  --locked-bottom: #6b5d4c;
+  --locked-lip: #4e4337;
+  --play-glow: rgba(255, 200, 96, 0.25);
+  --trim-gold: #d9b25a;
+  --trim-gold-deep: #c9a24e;
+  --trim-gold-light: #e9c97a;
+  --coin: #ffb627;
+  --status-online: #4ade80;
+  --text-on-dark: #fff6de;
+  --text-on-dark-muted: #d9e6d2;
+  --text-on-panel: #3a2a1c;
+  --text-on-panel-muted: #6b5540;
+  --text-heading: #8e1b14;
+  --focus-ring: #2f80ed;
+  /* spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  /* radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+  /* shadow */
+  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 3px 0 rgba(0, 0, 0, 0.25);
+  /* type */
+  --font-sans: Montserrat, "Helvetica Neue", Arial, sans-serif;
+}
+.display { font-family: var(--font-sans); font-size: 40px; line-height: 44px; font-weight: 900; letter-spacing: 0.01em; }
+.title { font-family: var(--font-sans); font-size: 24px; line-height: 28px; font-weight: 900; letter-spacing: 0.02em; }
+.heading { font-family: var(--font-sans); font-size: 17px; line-height: 22px; font-weight: 900; letter-spacing: 0.03em; }
+.label { font-family: var(--font-sans); font-size: 14px; line-height: 18px; font-weight: 900; letter-spacing: 0.05em; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 700; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; }
+.numeric { font-family: var(--font-sans); font-size: 18px; line-height: 22px; font-weight: 900; }
