@@ -1,5 +1,12 @@
 The shared menu and shell UI for every Semaver Games title: lobby, shop, settings, rewards, modals. It does not cover gameplay (the table, cards in hand, turn indicators); each game owns that.
 
+## Brand
+
+- Semaver Games is the platform; each game is its own title under it. The platform logo is the tea glass on a striped saucer above the "SEMAVER GAMES" wordmark (Logos assets). Each game has its own logo on the shared red plaque (Game Logos assets).
+- Inside a game, the game's logo leads: lobby header, loading screen, share images. The Semaver Games mark appears small, on the splash screen and in settings or the footer.
+- On the platform's own surfaces (semavergames.com, the store publisher page, the game picker) the Semaver Games logo leads and game logos are the items being chosen.
+- Use the logo files as they are. Never retype a wordmark or redraw an emblem.
+
 ## How to use it
 
 - Load `tokens.css`, then `components.css`, then `components.js`. Components are plain HTML with `sg-` classes; the script only draws the faceted button shape.
@@ -63,7 +70,7 @@ One family, Montserrat, in three weights (600, 700, 900), loaded from Google Fon
 
 - The bottom nav uses 24px line icons, 2px stroke, round caps, in the label's color.
 - The suit glyphs in `GameCard` and the plain card backs in `ShopItem` are placeholders. Each game supplies its own illustrations for those slots.
-- There is no Semaver Games logo yet. Set the name in Montserrat 900 until one exists.
+- The logo is the tea glass mark above the "SEMAVER GAMES" wordmark, in the Logos assets (`logo-stacked-on-dark.svg`, `logo-stacked-on-light.svg`). Use the mark on its own (`mark-on-dark.svg`, `mark-on-light.svg`) where the name is already present, and the small versions under 64px. Never retype the wordmark; use the files.
 - No emoji in the UI.
 
 ## Intentional changes from the first Yanık build

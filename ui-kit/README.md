@@ -8,6 +8,8 @@ Shared menu and shell UI for every Semaver Games title (lobby, shop, settings, r
 | `tokens.css` | The same tokens as CSS custom properties, generated from `tokens.json`. |
 | `components.css` | The `sg-` component classes (buttons, switch, tabs, cards, modal, shop item, settings rows, nav). |
 | `components.js` | Draws the pointed outline of the faceted button and play banner as SVG. |
+| `index.html` | The browsable version of the kit, at semavergames.com/ui-kit/. Generated; not indexed by search engines. |
+| `logos/` | The Semaver Games logo files, game logos and emblems as SVG. |
 | `GUIDELINES.md` | The rules: what each color means, type, copy, behavior. |
 
 On the web, load `tokens.css`, `components.css` and `components.js`, and set `lang="tr"` on the page. In the React Native app, read values from `tokens.json` and treat `components.css` as the visual spec.

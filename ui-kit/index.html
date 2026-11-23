@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semaver Games UI Kit</title>
+<meta name="description" content="Brand, tokens and menu components shared by every Semaver Games title.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logos/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; background: #0d1a13; color: #d9e6d2; font: 500 15px/1.6 Montserrat, "Helvetica Neue", Arial, sans-serif; }
+  a { color: #e9c97a; }
+  code { font: 600 12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(255,255,255,.08); color: #fff6de; padding: 1px 5px; border-radius: 4px; }
+  .nav { position: sticky; top: 0; z-index: 20; background: rgba(13,26,19,.94); border-bottom: 1px solid rgba(217,178,90,.35); backdrop-filter: blur(6px); }
+  .nav__in { max-width: 1040px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 16px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .nav__brand { display: flex; align-items: center; gap: 8px; color: #fff6de; font-weight: 900; text-decoration: none; letter-spacing: .03em; }
+  .nav__brand img { width: 26px; height: 26px; }
+  .nav a.link { color: #d9e6d2; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+  .nav a.link:hover { color: #e9c97a; }
+  main { max-width: 1040px; margin: 0 auto; padding: 28px 16px 80px; }
+  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 20px 0 8px; }
+  .hero img { width: 200px; height: auto; }
+  .hero h1 { margin: 0 0 6px; color: #fff6de; font-size: clamp(26px, 5vw, 36px); line-height: 1.1; font-weight: 900; }
+  .hero p { margin: 0; max-width: 56ch; }
+  section { padding-top: 40px; }
+  h2 { margin: 0 0 4px; color: #fff6de; font-size: 24px; line-height: 1.2; font-weight: 900; letter-spacing: .01em; }
+  h2 + p { margin: 0 0 16px; max-width: 70ch; }
+  h3 { margin: 28px 0 10px; color: #e9c97a; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .tile { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(217,178,90,.25); display: flex; flex-direction: column; }
+  .tile__art { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 190px; padding: 20px; }
+  .tile__art img { max-width: 100%; height: auto; }
+  .tile--felt .tile__art { background: #17301f; }
+  .tile--cream .tile__art { background: #fbf0d8; }
+  .tile--plain .tile__art { background: #f4f2ec; }
+  .appicon { border-radius: 22.5%; }
+  .tile figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 10px 12px; background: #12241a; font-size: 13px; font-weight: 700; color: #fff6de; }
+  .tile figcaption a { font-weight: 500; font-size: 12px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+  .swatch { display: flex; gap: 12px; padding: 10px; background: #12241a; border-radius: 12px; min-width: 0; }
+  .swatch__chip { flex: none; width: 48px; height: 48px; border-radius: 10px; border: 1px solid rgba(255,255,255,.22); }
+  .swatch__val { margin-left: 8px; font-size: 12px; color: #b5c4b9; font-variant-numeric: tabular-nums; }
+  .swatch p, .scale p, .typerow p { margin: 4px 0 0; font-size: 12.5px; line-height: 1.45; color: #b5c4b9; }
+  .typerow { padding: 14px 0; border-top: 1px solid rgba(255,255,255,.1); }
+  .typerow__meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; font-size: 12px; color: #b5c4b9; }
+  .typerow__sample { margin-top: 6px; color: #fff6de; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; overflow-wrap: anywhere; }
+  .scales { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+  .scale { padding: 12px; background: #12241a; border-radius: 12px; }
+  .bar { display: block; height: 14px; margin-bottom: 8px; background: #d9b25a; border-radius: 3px; }
+  .corner { display: block; width: 72px; height: 48px; margin-bottom: 8px; background: #fbf0d8; border: 2px solid #d9b25a; }
+  .comp { margin: 0 0 16px; border: 1px solid rgba(217,178,90,.25); border-radius: 14px; overflow: hidden; background: #12241a; }
+  .comp > header { padding: 12px 14px; }
+  .comp h4 { margin: 0; color: #fff6de; font-size: 17px; font-weight: 900; }
+  .comp > header p { margin: 2px 0 0; font-size: 13.5px; color: #b5c4b9; }
+  .comp__stage { padding: 20px 16px 22px; overflow-x: auto; }
+  .comp__stage.sg-stage--stack > * { max-width: 100%; }
+  details { border-top: 1px solid rgba(255,255,255,.1); }
+  summary { padding: 10px 14px; cursor: pointer; font-weight: 700; font-size: 13px; letter-spacing: .04em; color: #e9c97a; }
+  .prose { padding: 0 14px 14px; font-size: 14px; }
+  .prose p, .prose ul { margin: 0 0 10px; }
+  .prose ul { padding-left: 20px; }
+  .prose h3, .prose h4, .prose h5 { margin: 16px 0 6px; color: #fff6de; font-size: 14px; letter-spacing: 0; text-transform: none; }
+  .tablewrap { overflow-x: auto; margin: 0 0 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  th { color: #fff6de; font-weight: 700; }
+  .guide { background: #12241a; border-radius: 14px; padding: 6px 16px 10px; }
+  .guide h4 { margin: 22px 0 8px; color: #fff6de; font-size: 16px; font-weight: 900; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); font-size: 13px; color: #b5c4b9; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Sections"><div class="nav__in">
+  <a class="nav__brand" href="#top"><img src="logos/mark-small-on-dark.svg" alt="">UI Kit</a>
+  <a class="link" href="#brand">Brand</a>
+  <a class="link" href="#colors">Colors</a>
+  <a class="link" href="#type">Type</a>
+  <a class="link" href="#scales">Spacing</a>
+  <a class="link" href="#components">Components</a>
+  <a class="link" href="#guidelines">Guidelines</a>
+</div></nav>
+<main id="top">
+<div class="hero">
+  <img src="logos/logo-stacked-on-dark.svg" alt="Semaver Games">
+  <div><h1>UI Kit</h1><p>Brand, tokens and menu components shared by every Semaver Games title. Gameplay UI is not covered; each game owns its table.</p></div>
+</div>
+
+<section id="brand">
+<h2>Brand</h2>
+<p>The platform logo, then each game's own logo. Click a file name to open the SVG.</p>
+<h3>Semaver Games</h3>
+<div class="tiles"><figure class="tile tile--felt"><div class="tile__art"><img src="logos/logo-stacked-on-dark.svg" width="260" alt="Logo, on dark"></div><figcaption>Logo, on dark<a href="logos/logo-stacked-on-dark.svg" target="_blank" rel="noopener">logo-stacked-on-dark.svg</a></figcaption></figure><figure class="tile tile--cream"><div class="tile__art"><img src="logos/logo-stacked-on-light.svg" width="260" alt="Logo, on light"></div><figcaption>Logo, on light<a href="logos/logo-stacked-on-light.svg" target="_blank" rel="noopener">logo-stacked-on-light.svg</a></figcaption></figure><figure class="tile tile--felt"><div class="tile__art"><img src="logos/mark-on-dark.svg" width="170" alt="Mark, on dark"></div><figcaption>Mark, on dark<a href="logos/mark-on-dark.svg" target="_blank" rel="noopener">mark-on-dark.svg</a></figcaption></figure><figure class="tile tile--cream"><div class="tile__art"><img src="logos/mark-on-light.svg" width="170" alt="Mark, on light"></div><figcaption>Mark, on light<a href="logos/mark-on-light.svg" target="_blank" rel="noopener">mark-on-light.svg</a></figcaption></figure><figure class="tile tile--felt"><div class="tile__art"><img src="logos/mark-small-on-dark.svg" width="72" alt="Small mark, on dark"></div><figcaption>Small mark, on dark<a href="logos/mark-small-on-dark.svg" target="_blank" rel="noopener">mark-small-on-dark.svg</a></figcaption></figure><figure class="tile tile--cream"><div class="tile__art"><img src="logos/mark-small-on-light.svg" width="72" alt="Small mark, on light"></div><figcaption>Small mark, on light<a href="logos/mark-small-on-light.svg" target="_blank" rel="noopener">mark-small-on-light.svg</a></figcaption></figure><figure class="tile tile--plain"><div class="tile__art"><img src="logos/app-icon.svg" width="120" alt="App icon" class="appicon"></div><figcaption>App icon<a href="logos/app-icon.svg" target="_blank" rel="noopener">app-icon.svg</a></figcaption></figure><figure class="tile tile--plain"><div class="tile__art"><img src="logos/favicon.svg" width="48" alt="Favicon"></div><figcaption>Favicon<a href="logos/favicon.svg" target="_blank" rel="noopener">favicon.svg</a></figcaption></figure></div>
+<details class="comp" style="margin-top:12px"><summary>Logo rules</summary><div class="prose"><p>The logo is the mark with the wordmark under it: "SEMAVER" in Montserrat 900 and "GAMES" in Montserrat 700, widely spaced, between two gold rules. The lettering is outlined, so the files need no font.</p>
+<p>The Semaver Games mark is a tea glass on a red and white striped saucer, with a spade on the glass and steam rising from inside it.</p>
+<div class="tablewrap"><table><thead><tr><th>File</th><th>Use it for</th></tr></thead><tbody><tr><td><code>logo-stacked-on-dark.svg</code></td><td>The main logo: the mark above the wordmark. On <code>bg-table</code> and other dark grounds. Use it wherever the brand is introduced: splash screen, store listing, top of the landing page.</td></tr><tr><td><code>logo-stacked-on-light.svg</code></td><td>The same logo for <code>surface-panel</code>, white and other light grounds.</td></tr><tr><td><code>mark-on-dark.svg</code></td><td>The main mark. On <code>bg-table</code>, <code>bg-table-deep</code>, <code>surface-night</code> and other dark grounds.</td></tr><tr><td><code>mark-on-light.svg</code></td><td>On <code>surface-panel</code>, white and other light grounds. Same drawing with darker outlines and steam.</td></tr><tr><td><code>mark-small-on-dark.svg</code>, <code>mark-small-on-light.svg</code></td><td>Simplified flat version, for anything under 64px. No steam, no highlights.</td></tr><tr><td><code>app-icon.svg</code></td><td>1024px square on felt, for app stores and home screens. The store applies its own corner mask.</td></tr><tr><td><code>favicon.svg</code></td><td>Browser tab icon: the small mark on a rounded felt square.</td></tr></tbody></table></div>
+<p>Rules:</p>
+<ul><li>Use the stacked logo at 120px wide or more; below that the word "GAMES" gets too small, so use the mark alone.</li><li>Use the full mark at 64px tall or more; below that use the small version.</li><li>Keep clear space around it equal to the width of the saucer's rim stripe band on every side.</li><li>Don't recolor it, stretch it, add a shadow or outline, or place it on photos or busy patterns.</li><li>Don't crop the steam or the saucer.</li><li>Don't retype the wordmark in another font, weight or spacing, or rearrange the mark and the words.</li><li>All files are multi-color; none is a single-ink mark, so none can be tinted with CSS.</li></ul></div></details>
+<h3>Game logos</h3>
+<div class="tiles"><figure class="tile tile--felt"><div class="tile__art"><img src="logos/game-yanik-masasi.svg" width="300" alt="Yanık Masası"></div><figcaption>Yanık Masası<a href="logos/game-yanik-masasi.svg" target="_blank" rel="noopener">game-yanik-masasi.svg</a></figcaption></figure><figure class="tile tile--cream"><div class="tile__art"><img src="logos/game-yanik-masasi.svg" width="300" alt="Yanık Masası, on light"></div><figcaption>Yanık Masası, on light<a href="logos/game-yanik-masasi.svg" target="_blank" rel="noopener">game-yanik-masasi.svg</a></figcaption></figure><figure class="tile tile--felt"><div class="tile__art"><img src="logos/emblem-yanik-card-left.svg" width="110" alt="Yanık emblem, left"></div><figcaption>Yanık emblem, left<a href="logos/emblem-yanik-card-left.svg" target="_blank" rel="noopener">emblem-yanik-card-left.svg</a></figcaption></figure><figure class="tile tile--felt"><div class="tile__art"><img src="logos/emblem-yanik-card-right.svg" width="110" alt="Yanık emblem, right"></div><figcaption>Yanık emblem, right<a href="logos/emblem-yanik-card-right.svg" target="_blank" rel="noopener">emblem-yanik-card-right.svg</a></figcaption></figure></div>
+<details class="comp" style="margin-top:12px"><summary>Game logo pattern</summary><div class="prose"><p>Every game has its own logo, built on one pattern so the games read as a family under Semaver Games.</p>
+<p>The pattern:</p>
+<ul><li>The red plaque with pointed ends and a bowed top and bottom, taken from the Yanık Masası build: three-stop red gradient, 1.5px gold edge, faint inner line, gloss on the top half, dark lip underneath.</li><li>The game's name in Montserrat 900 capitals, cream with a dark red shadow, on one or two lines, centered on the plaque. The lettering is outlined.</li><li>The game's emblem on both sides, mirrored and tilted outward about 9 degrees, overlapping the ends of the plaque.</li></ul>
+<div class="tablewrap"><table><thead><tr><th>File</th><th>Game</th><th>Emblem</th></tr></thead><tbody><tr><td><code>game-yanik-masasi.svg</code></td><td>Yanık Masası</td><td>A playing card with a spade, on fire</td></tr></tbody></table></div>
+<p>The emblem is also available on its own, for places where the name is already present (the ends of the play banner, loading screens, empty states):</p>
+<div class="tablewrap"><table><thead><tr><th>File</th><th>What</th></tr></thead><tbody><tr><td><code>emblem-yanik-card-left.svg</code></td><td>The flaming card, tilted left. Goes on the left side.</td></tr><tr><td><code>emblem-yanik-card-right.svg</code></td><td>The mirrored card, tilted right. Goes on the right side.</td></tr></tbody></table></div>
+<p>Rules:</p>
+<ul><li>One file works on both dark and light grounds; the plaque carries its own background.</li><li>A new game changes only the name and the emblem. Keep the plaque shape, the lettering style and the mirrored layout.</li><li>A game may recolor the plaque with its own theme's <code>primary-</code> stops. The gold edge stays.</li><li>Minimum width 140px. Below that, use the emblem alone.</li><li>The Semaver Games logo and a game logo are never merged into one drawing. Where both appear, the game logo leads and "Semaver Games" sits small beneath or in a corner.</li></ul></div></details>
+</section>
+
+<section id="colors">
+<h2>Colors</h2>
+<p>Every color has one job. Token names are the CSS variable names in <code>tokens.css</code>.</p>
+<h3>Table and surfaces</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#17301f"></span><div><code>bg-table</code><span class="swatch__val">#17301f</span><p>The felt. Page background of every menu screen.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#0a2f1c"></span><div><code>bg-table-deep</code><span class="swatch__val">#0a2f1c</span><p>Edges and vignette of the felt, and the scrim behind modals.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#fbf0d8"></span><div><code>surface-panel</code><span class="swatch__val">#fbf0d8</span><p>Cream panels: modals, game cards, shop items, settings groups.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#f1ddb0"></span><div><code>surface-panel-inset</code><span class="swatch__val">#f1ddb0</span><p>Wells inside a cream panel: claimed reward tile, code chip ground, divider lines.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#140c0a"></span><div><code>surface-night</code><span class="swatch__val">#140c0a</span><p>The one dark feature card (shop) and pills in the top bar.</p></div></div></div>
+<h3>Button gradients</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#c8322a"></span><div><code>primary-top</code><span class="swatch__val">#c8322a</span><p>Top stop of the red button gradient. Exact value from the Yanık Masası build.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#8e1b14"></span><div><code>primary-mid</code><span class="swatch__val">#8e1b14</span><p>Middle stop (55%) of the red button gradient; the label sits on this.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#5e0d09"></span><div><code>primary-bottom</code><span class="swatch__val">#5e0d09</span><p>Bottom stop of the red button gradient.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#450906"></span><div><code>primary-lip</code><span class="swatch__val">#450906</span><p>Lip under red buttons.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#3f8a5c"></span><div><code>confirm-top</code><span class="swatch__val">#3f8a5c</span><p>Top stop of the green button gradient.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#2a6140"></span><div><code>confirm-mid</code><span class="swatch__val">#2a6140</span><p>Middle stop of the green button gradient; the label sits on this.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#1b3f2a"></span><div><code>confirm-bottom</code><span class="swatch__val">#1b3f2a</span><p>Bottom stop of the green button gradient.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#12301f"></span><div><code>confirm-lip</code><span class="swatch__val">#12301f</span><p>Lip under green buttons.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#8a7964"></span><div><code>neutral-top</code><span class="swatch__val">#8a7964</span><p>Top stop of the grey-brown button gradient and unselected tabs.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#6b5d4e"></span><div><code>neutral-mid</code><span class="swatch__val">#6b5d4e</span><p>Middle stop of the grey-brown button gradient; the label sits on this.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#4e4337"></span><div><code>neutral-bottom</code><span class="swatch__val">#4e4337</span><p>Bottom stop of the grey-brown button gradient.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#2f271f"></span><div><code>neutral-lip</code><span class="swatch__val">#2f271f</span><p>Lip under grey-brown buttons.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#a39582"></span><div><code>locked-top</code><span class="swatch__val">#a39582</span><p>Top stop of a locked or disabled button. Source value; cream text near the top edge is below 4.5:1, kept as the build has it.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#8a7964"></span><div><code>locked-mid</code><span class="swatch__val">#8a7964</span><p>Middle stop of a locked or disabled button.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#6b5d4c"></span><div><code>locked-bottom</code><span class="swatch__val">#6b5d4c</span><p>Bottom stop of a locked or disabled button.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#4e4337"></span><div><code>locked-lip</code><span class="swatch__val">#4e4337</span><p>Lip under a locked or disabled button.</p></div></div></div>
+<h3>Flat fills and marks</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#c0261f"></span><div><code>action-primary</code><span class="swatch__val">#c0261f</span><p>Flat red for small marks that are not buttons: badges, ribbons, today&#x27;s reward tile. Buttons use the primary gradient stops.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#9e2019"></span><div><code>action-primary-pressed</code><span class="swatch__val">#9e2019</span><p>Darker flat red, kept for pressed marks and the default card back.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#4a0a07"></span><div><code>action-primary-deep</code><span class="swatch__val">#4a0a07</span><p>The modal frame and the lip under today&#x27;s reward tile.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#2f6b47"></span><div><code>action-confirm</code><span class="swatch__val">#2f6b47</span><p>Flat green for state marks: switch track when on, upcoming reward tiles, the check mark, owned-item text. Buttons use the confirm gradient stops.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#1b3f2a"></span><div><code>action-confirm-deep</code><span class="swatch__val">#1b3f2a</span><p>Darker flat green, kept for pressed marks.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#6b5d4e"></span><div><code>action-neutral</code><span class="swatch__val">#6b5d4e</span><p>Flat grey-brown for the switch track when off. Buttons use the neutral gradient stops.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#3d342b"></span><div><code>action-neutral-deep</code><span class="swatch__val">#3d342b</span><p>Darker flat grey-brown.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:rgba(255, 200, 96, 0.25)"></span><div><code>play-glow</code><span class="swatch__val">rgba(255, 200, 96, 0.25)</span><p>Soft amber glow around the play banner only.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#ffb627"></span><div><code>coin</code><span class="swatch__val">#ffb627</span><p>Coin face and the notification of a waiting reward. Not a text color.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#4ade80"></span><div><code>status-online</code><span class="swatch__val">#4ade80</span><p>The live dot next to an online player count on action-primary and bg-table. A mark, not a text color.</p></div></div></div>
+<h3>Gold trim</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#d9b25a"></span><div><code>trim-gold</code><span class="swatch__val">#d9b25a</span><p>Borders on buttons, panels and pills. Decorative only, never text on cream.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#c9a24e"></span><div><code>trim-gold-deep</code><span class="swatch__val">#c9a24e</span><p>Coin rim and pressed gold borders.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#e9c97a"></span><div><code>trim-gold-light</code><span class="swatch__val">#e9c97a</span><p>Gold text on surface-night and bg-table: shop title, level label.</p></div></div></div>
+<h3>Text</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#fff6de"></span><div><code>text-on-dark</code><span class="swatch__val">#fff6de</span><p>Text on bg-table, surface-night and every filled button.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#d9e6d2"></span><div><code>text-on-dark-muted</code><span class="swatch__val">#d9e6d2</span><p>Secondary text on bg-table: level, online count, nav labels.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#3a2a1c"></span><div><code>text-on-panel</code><span class="swatch__val">#3a2a1c</span><p>Body text on surface-panel and surface-panel-inset.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#6b5540"></span><div><code>text-on-panel-muted</code><span class="swatch__val">#6b5540</span><p>Helper text on surface-panel: setting descriptions, units.</p></div></div><div class="swatch"><span class="swatch__chip" style="background:#8e1b14"></span><div><code>text-heading</code><span class="swatch__val">#8e1b14</span><p>Headings and setting names on surface-panel; the diamond divider.</p></div></div></div>
+<h3>Focus</h3><div class="swatches"><div class="swatch"><span class="swatch__chip" style="background:#2f80ed"></span><div><code>focus-ring</code><span class="swatch__val">#2f80ed</span><p>Keyboard focus outline, 3px solid with 2px offset. Holds 3:1 on felt, cream and night.</p></div></div></div>
+</section>
+
+<section id="type">
+<h2>Type</h2>
+<p>One family, Montserrat, in weights 600, 700 and 900.</p>
+<div class="typerow"><div class="typerow__meta"><code>display</code><span>40px / 44px · 900</span></div><div class="typerow__sample" lang="tr" style="font-size:40px;line-height:44px;font-weight:900;letter-spacing:0.01em;text-transform:uppercase;">HEMEN OYNA</div><p>The play banner only. Uppercase.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>title</code><span>24px / 28px · 900</span></div><div class="typerow__sample" lang="tr" style="font-size:24px;line-height:28px;font-weight:900;letter-spacing:0.02em;text-transform:uppercase;">GÜNLÜK GİRİŞ ÖDÜLÜ</div><p>Screen titles, modal titles, game card titles. Uppercase.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>heading</code><span>17px / 22px · 900</span></div><div class="typerow__sample" lang="tr" style="font-size:17px;line-height:22px;font-weight:900;letter-spacing:0.03em;text-transform:uppercase;">HESAP VE YARDIM</div><p>Group headings inside panels and shop item names. Uppercase.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>label</code><span>14px / 18px · 900</span></div><div class="typerow__sample" lang="tr" style="font-size:14px;line-height:18px;font-weight:900;letter-spacing:0.05em;text-transform:uppercase;">SATIN AL</div><p>Button text, tabs, ribbons. Uppercase.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>body</code><span>15px / 22px · 700</span></div><div class="typerow__sample" lang="tr" style="font-size:15px;line-height:22px;font-weight:700;">Her gün gir, ödülün büyüsün.</div><p>Sentences: modal copy, setting names. Sentence case.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>caption</code><span>12px / 16px · 600</span></div><div class="typerow__sample" lang="tr" style="font-size:12px;line-height:16px;font-weight:600;">Kart, sıra ve bitiş sesleri</div><p>Helper text, units, nav labels. Sentence case.</p></div>
+<div class="typerow"><div class="typerow__meta"><code>numeric</code><span>18px / 22px · 900</span></div><div class="typerow__sample" lang="tr" style="font-size:18px;line-height:22px;font-weight:900;">1.500</div><p>Coin amounts and prices. Tabular figures, Turkish thousands dot.</p></div>
+</section>
+
+<section id="scales">
+<h2>Spacing and corners</h2>
+<p>Six spacing steps and five corner sizes. No other values.</p>
+<h3>Spacing</h3>
+<div class="scales"><div class="scale"><span class="bar" style="width:4px"></span><code>space-1</code><span class="swatch__val">4px</span><p>Gap between an icon and its label; coin and amount.</p></div>
+<div class="scale"><span class="bar" style="width:8px"></span><code>space-2</code><span class="swatch__val">8px</span><p>Gap between sibling controls; padding inside pills.</p></div>
+<div class="scale"><span class="bar" style="width:12px"></span><code>space-3</code><span class="swatch__val">12px</span><p>Vertical padding in rows; gap between tiles.</p></div>
+<div class="scale"><span class="bar" style="width:16px"></span><code>space-4</code><span class="swatch__val">16px</span><p>Screen gutter on phones; panel padding.</p></div>
+<div class="scale"><span class="bar" style="width:24px"></span><code>space-6</code><span class="swatch__val">24px</span><p>Gap between panels; modal padding.</p></div>
+<div class="scale"><span class="bar" style="width:32px"></span><code>space-8</code><span class="swatch__val">32px</span><p>Gap between screen sections.</p></div></div>
+<h3>Corners</h3>
+<div class="scales"><div class="scale"><span class="corner" style="border-radius:6px"></span><code>radius-sm</code><span class="swatch__val">6px</span><p>Small tiles, code chip, tabs.</p></div>
+<div class="scale"><span class="corner" style="border-radius:10px"></span><code>radius-md</code><span class="swatch__val">10px</span><p>Buttons and reward tiles.</p></div>
+<div class="scale"><span class="corner" style="border-radius:16px"></span><code>radius-lg</code><span class="swatch__val">16px</span><p>Panels, modals, shop items.</p></div>
+<div class="scale"><span class="corner" style="border-radius:24px"></span><code>radius-xl</code><span class="swatch__val">24px</span><p>Lobby game cards.</p></div>
+<div class="scale"><span class="corner" style="border-radius:999px"></span><code>radius-pill</code><span class="swatch__val">999px</span><p>Currency pills, switches, badges, the level bar.</p></div></div>
+</section>
+
+<section id="components">
+<h2>Components</h2>
+<p>Live, built from <code>components.css</code>. Open "Usage notes" under each one for what it needs and what its colors mean.</p>
+<h3>Actions</h3><article class="comp" id="c-button"><header><h4>Button</h4><p>The one button for every menu action, in five meanings that never swap.</p></header><div class="sg-stage comp__stage" lang="tr">
+<button class="sg-btn">Satın Al</button>
+<button class="sg-btn sg-btn--confirm">Tamam</button>
+<button class="sg-btn sg-btn--neutral">Kuralları Aç</button>
+<button class="sg-btn sg-btn--ghost">Geri</button>
+<button class="sg-btn sg-btn--danger">Hesabı Sil</button>
+<button class="sg-btn" disabled>5. Seviye</button>
+<button class="sg-btn sg-btn--sm">Giriş Yap</button>
+<button class="sg-btn sg-btn--lg">Ödülü Al</button>
+<button class="sg-btn sg-btn--hex">Oyna</button>
+<button class="sg-btn sg-btn--hex sg-btn--lg">Masa Kur</button>
+<button class="sg-btn sg-btn--hex" disabled>5. Seviye</button>
+</div><details><summary>Usage notes</summary><div class="prose"><p>The one button for every menu action, in five meanings that never swap.</p>
+<div class="tablewrap"><table><thead><tr><th>Class</th><th>Meaning</th><th>Examples</th></tr></thead><tbody><tr><td><code>sg-btn</code> (primary, red)</td><td>Moves the player forward. One per view.</td><td>Oyna, Satın Al, Ödülü Al, Giriş Yap</td></tr><tr><td><code>sg-btn--confirm</code> (green)</td><td>Acknowledges or shows a positive state.</td><td>Tamam, Takılı</td></tr><tr><td><code>sg-btn--neutral</code></td><td>Secondary action or opening a reference screen.</td><td>Kuralları Aç, Öğreticiyi Aç</td></tr><tr><td><code>sg-btn--ghost</code></td><td>Navigation on the felt.</td><td>Geri</td></tr><tr><td><code>sg-btn--danger</code></td><td>Destructive. Always followed by a confirm modal.</td><td>Hesabı Sil</td></tr></tbody></table></div>
+<p>Every filled button has the same finish: a three-stop vertical gradient, a 2px <code>trim-gold</code> border and a lip in the color's darkest shade. Red reads <code>primary-top</code>, <code>primary-mid</code>, <code>primary-bottom</code> and <code>primary-lip</code>; green and grey-brown have the same four stops under <code>confirm-</code> and <code>neutral-</code>. A <code>disabled</code> button switches to the <code>locked-</code> stops.</p>
+<p>The faceted button, <code>sg-btn sg-btn--hex</code>, is that same finish with pointed ends. Use it where the player enters a game or a destination from the lobby: the button on a <code>GameCard</code> ("Oyna", "Masa Kur", "Giriş Yap") and the <code>PlayBanner</code>. Everywhere else (modals, shop, settings) use the rounded button. The pointed outline is drawn by <code>components/bundle.js</code>, which finds every <code>sg-btn--hex</code> on the page; call <code>Semaver.init()</code> after adding buttons later.</p>
+<p>Sizes: <code>sg-btn--sm</code> (36px), default (44px), <code>sg-btn--lg</code> (56px). <code>sg-btn--block</code> fills its container.</p>
+<p>You provide: the label, in Turkish, as a verb or verb phrase of one to three words. Write it in normal case; CSS uppercases it, and the page must carry <code>lang="tr"</code> so <code>i</code> becomes <code>İ</code>.</p>
+<p>Do:</p>
+<ul><li>Keep the default height on phones; 44px is the minimum touch target.</li><li>Use <code>disabled</code> for locked items and say why in the label ("5. Seviye").</li></ul>
+<p>Don't:</p>
+<ul><li>Use the faceted button inside modals, shop items or settings rows, or put two of them next to each other outside a row of game cards.</li><li>Put two primary buttons side by side. Pair primary with neutral or ghost.</li><li>Use green for buying or playing, or red for on/off state. A setting that turns on and off is a <code>Switch</code>.</li></ul></div></details></article><article class="comp" id="c-playbanner"><header><h4>PlayBanner</h4><p>The single largest control in a game's lobby: one tap seats the player at a table.</p></header><div class="sg-stage comp__stage" lang="tr">
+<button class="sg-play">
+  <span class="sg-play__label">Hemen Oyna</span>
+  <span class="sg-play__meta">128 oyuncu çevrimiçi</span>
+</button>
+</div><details><summary>Usage notes</summary><div class="prose"><p>The single largest control in a game's lobby: one tap seats the player at a table.</p>
+<p>A wide faceted button: the same gradient, 2px gold border and lip as every other button, with pointed ends and a soft amber glow (<code>play-glow</code>). Full width of the screen gutter, at least 104px tall. The live dot before the player count uses <code>status-online</code>. The outline is drawn by <code>components/bundle.js</code>.</p>
+<p>You provide: the label ("Hemen Oyna") and the live online count for the meta line. Hide the meta line when the count is unknown; don't show zero.</p>
+<p>One per lobby, placed where the thumb reaches: directly above the bottom nav on phones. Decorative art (flames, cards) may sit at the two ends on wide screens only and must never cover the label.</p></div></details></article><article class="comp" id="c-switch"><header><h4>Switch</h4><p>An on/off control for settings, replacing the Açık / Kapalı buttons.</p></header><div class="sg-stage comp__stage" lang="tr">
+<button class="sg-switch" role="switch" aria-checked="true" aria-label="Oyun sesleri" ></button>
+<button class="sg-switch" role="switch" aria-checked="false" aria-label="Bildirimler" ></button>
+<button class="sg-switch" role="switch" aria-checked="false" aria-label="Kilitli ayar" disabled></button>
+
+</div><details><summary>Usage notes</summary><div class="prose"><p>An on/off control for settings, replacing the Açık / Kapalı buttons.</p>
+<p>A <code>button</code> with <code>role="switch"</code> and <code>aria-checked</code>. Green track means on, neutral means off; the knob position carries the state too, so it does not rely on color alone.</p>
+<p>You provide: an <code>aria-label</code> or a visible label in a <code>SettingsRow</code>, and a click handler that flips <code>aria-checked</code> and saves the setting immediately. No separate save step.</p>
+<p>Use it for: sound, chat sound, vibration, notifications.</p>
+<p>Don't use it for actions that open something or change more than one value (theme picker, sign in). Those are a <code>Button</code>.</p></div></details></article><article class="comp" id="c-tabs"><header><h4>Tabs</h4><p>A single row of category tabs, used at the top of the shop.</p></header><div class="sg-stage comp__stage" lang="tr">
+<div class="sg-tabs" role="tablist" aria-label="Mağaza kategorileri">
+  <button class="sg-tab" role="tab" aria-selected="true">Deste</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Masa</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Çerçeve</button>
+  <button class="sg-tab" role="tab" aria-selected="false">İsim</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Kart Yüzü</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Efekt</button>
+  <button class="sg-tab" role="tab" aria-selected="false">Kazı Kazan</button>
+</div>
+
+</div><details><summary>Usage notes</summary><div class="prose"><p>A single row of category tabs, used at the top of the shop.</p>
+<p>The selected tab is red with a gold underline; the rest are neutral. On a phone the row scrolls sideways inside itself and never wraps to a second line.</p>
+<p>You provide: two to eight short labels (one or two words) and which one is selected (<code>aria-selected="true"</code>).</p>
+<p>Don't use tabs for steps in a flow or for filters that can combine. Keep the selected tab in the URL as a plain name, for example <code>/shop?tab=deste</code>.</p></div></details></article><h3>Status</h3><article class="comp" id="c-badge"><header><h4>Badge</h4><p>Small markers that something is waiting or new.</p></header><div class="sg-stage comp__stage" lang="tr">
+<span class="sg-badge">1</span>
+<span class="sg-badge">12</span>
+<span class="sg-badge sg-badge--dot" role="img" aria-label="Yeni"></span>
+<span class="sg-ribbon">Yeni</span>
+<span class="sg-ribbon">Yakında</span>
+</div><details><summary>Usage notes</summary><div class="prose"><p>Small markers that something is waiting or new.</p>
+<ul><li><code>sg-badge</code>: a count on a nav item (unclaimed gifts, friend requests). Show the number up to 99.</li><li><code>sg-badge--dot</code>: something is new but there is nothing to count. Give it an <code>aria-label</code>.</li><li><code>sg-ribbon</code>: a word on a card corner. Only two words are used: "Yeni" and "Yakında".</li></ul>
+<p>You provide: the count or the word. Remove the badge as soon as the player has seen or claimed the thing; a badge that never clears stops meaning anything.</p></div></details></article><article class="comp" id="c-currencypill"><header><h4>CurrencyPill</h4><p>Shows a balance: coins or scratch tickets.</p></header><div class="sg-stage comp__stage" lang="tr">
+<span class="sg-pill"><span class="sg-coin"></span>1.500<button class="sg-pill__add" aria-label="Para al">+</button></span>
+<span class="sg-pill"><span class="sg-ticket"></span>0<button class="sg-pill__add" aria-label="Bilet al">+</button></span>
+<span class="sg-pill sg-pill--static"><span class="sg-coin"></span>12.400</span>
+</div><details><summary>Usage notes</summary><div class="prose"><p>Shows a balance: coins or scratch tickets.</p>
+<p>A dark pill with the currency mark, the amount, and an optional <code>+</code> that opens the shop. Use <code>sg-pill--static</code> without the <code>+</code> on screens that are already the shop.</p>
+<p>You provide: the amount, formatted with the Turkish thousands dot (1.500, 12.400) and no decimals. Above 999.999 abbreviate (1,2 Mn).</p>
+<p><code>sg-coin</code> is the coin mark on its own; use it next to prices in <code>ShopItem</code> and amounts in <code>RewardTile</code>. Coins are play money: never show a currency symbol or the word "TL" next to a coin amount.</p></div></details></article><h3>Navigation</h3><article class="comp" id="c-topbar"><header><h4>TopBar</h4><p>The header of every menu screen: who the player is and what they hold.</p></header><div class="sg-stage comp__stage" lang="tr">
+<header class="sg-topbar">
+  <div class="sg-topbar__id">
+    <span class="sg-avatar" aria-hidden="true">M</span>
+    <div class="sg-topbar__meta">
+      <div class="sg-topbar__name">Misafir6167</div>
+      <div class="sg-topbar__level">Seviye 1 <span class="sg-level" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Seviye ilerlemesi"><span style="width:35%"></span></span></div>
+    </div>
+  </div>
+  <span class="sg-pill"><span class="sg-coin"></span>1.500<button class="sg-pill__add" aria-label="Para al">+</button></span>
+  <span class="sg-pill"><span class="sg-ticket"></span>0<button class="sg-pill__add" aria-label="Bilet al">+</button></span>
+</header>
+</div><details><summary>Usage notes</summary><div class="prose"><p>The header of every menu screen: who the player is and what they hold.</p>
+<p>Left: avatar, name and level bar. Right: currency pills. The name truncates with an ellipsis; the pills never shrink.</p>
+<p>You provide: the display name, an avatar (initial letter until the player picks a photo or frame), the level number and progress from 0 to 100, and the balances.</p>
+<p>The game logo is not part of this bar. On a phone it sits on its own line below the bar or is left out; it must never overlap the avatar. On inner screens (shop, settings) replace the identity block with a ghost "Geri" button and the screen title.</p></div></details></article><article class="comp" id="c-bottomnav"><header><h4>BottomNav</h4><p>The fixed bar at the bottom of the lobby with the secondary destinations.</p></header><div class="sg-stage sg-stage--stack comp__stage" lang="tr">
+<nav class="sg-nav" aria-label="Ana menü">
+  <button class="sg-nav__item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Günlük</span><span class="sg-badge">1</span></button>
+  <button class="sg-nav__item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M12 9v12M3 13h18M12 9c-2-4-7-3-5 0M12 9c2-4 7-3 5 0"/></svg><span>Hediye</span><span class="sg-badge">1</span></button>
+  <button class="sg-nav__item" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v10h16V10M3 10l2-6h14l2 6M3 10h18M10 20v-6h4v6"/></svg><span>Mağaza</span></button>
+  <button class="sg-nav__item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Kurallar</span></button>
+  <button class="sg-nav__item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><span>Ayarlar</span></button>
+</nav>
+</div><details><summary>Usage notes</summary><div class="prose"><p>The fixed bar at the bottom of the lobby with the secondary destinations.</p>
+<p>Up to five items, each an icon with a one-word label that is always fully visible. Items share the width equally. The current screen is gold; a <code>Badge</code> marks a waiting reward.</p>
+<p>You provide: the items (icon, one-word label, destination) and any badge counts.</p>
+<p>Five is the limit: with six the labels truncate on a phone, which is what happened in the first build ("GÜNLÜ…", "MAĞA…"). Extra destinations go inside Ayarlar. Add the bottom safe-area inset to the bar's padding on phones.</p></div></details></article><h3>Surfaces</h3><article class="comp" id="c-gamecard"><header><h4>GameCard</h4><p>A lobby card for one game mode or destination: title, illustration, one line of description, one button.</p></header><div class="sg-stage comp__stage" lang="tr">
+<article class="sg-card">
+  <h3 class="sg-card__title">Yanık</h3>
+  <div class="sg-card__art" aria-hidden="true">♠</div>
+  <p class="sg-card__sub">Hemen masaya otur</p>
+  <button class="sg-btn sg-btn--hex">Oyna</button>
+</article>
+<article class="sg-card sg-card--night">
+  <span class="sg-ribbon">Yeni</span>
+  <h3 class="sg-card__title">Mağaza</h3>
+  <div class="sg-card__art" aria-hidden="true">♦</div>
+  <p class="sg-card__sub">Deste, masa, çerçeve</p>
+  <button class="sg-btn sg-btn--ghost">Alışveriş</button>
+</article>
+<article class="sg-card sg-card--locked">
+  <h3 class="sg-card__title">Katlamalı</h3>
+  <div class="sg-card__art" aria-hidden="true">♣</div>
+  <p class="sg-card__sub">5. seviyede açılır</p>
+  <button class="sg-btn sg-btn--hex" disabled>5. Seviye</button>
+</article>
+</div><details><summary>Usage notes</summary><div class="prose"><p>A lobby card for one game mode or destination: title, illustration, one line of description, one button.</p>
+<p>Variants: default cream; <code>sg-card--night</code> for the single featured card in a lobby (the shop); <code>sg-card--locked</code> for modes that open at a level.</p>
+<p>The button on a cream card is the faceted button (<code>sg-btn sg-btn--hex</code>); a locked card shows it disabled with the unlock condition as its label. The night card keeps a ghost button.</p>
+<p>You provide: a title of one or two words, the illustration, a description of up to five words, and the button label. The art slot is 88px tall; the suit glyphs in the preview are placeholders for the game's own illustration.</p>
+<p>Cards sit in one row that scrolls sideways on phones, with the next card peeking at the edge so the scroll is discoverable. At most one night card and one ribbon per row.</p></div></details></article><article class="comp" id="c-modal"><header><h4>Modal</h4><p>A cream dialog over the dimmed felt, for one question or one reward.</p></header><div class="sg-stage sg-stage--stack comp__stage" lang="tr">
+<div class="sg-scrim">
+  <div class="sg-modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="sg-modal__close" aria-label="Kapat">×</button>
+    <h2 class="sg-modal__title" >Yanık oynamayı biliyor musun?</h2>
+    <div class="sg-rule" aria-hidden="true"><span></span></div>
+    <p class="sg-modal__body">İstersen önce kısa bir öğreticiyle başla.</p>
+    <div class="sg-modal__actions">
+      <button class="sg-btn sg-btn--neutral">Yanık Öğren</button>
+      <button class="sg-btn">Hemen Oyna</button>
+    </div>
+  </div>
+</div>
+</div><details><summary>Usage notes</summary><div class="prose"><p>A cream dialog over the dimmed felt, for one question or one reward.</p>
+<p>Title, diamond rule, one or two sentences, then at most two buttons: the primary on the right, the alternative on the left as neutral.</p>
+<p>You provide: the title (a question or the name of the thing), the body copy, and the actions.</p>
+<p>Rules:</p>
+<ul><li>Every modal has a close button, and Escape and a tap on the scrim close it too.</li><li>One modal at a time, and never more than one unprompted modal per session start. Rewards that are waiting show as a <code>Badge</code> on the nav instead of opening on their own.</li><li>Maximum width 420px; on a phone it takes the full width inside the 16px gutter.</li><li>Destructive confirmations use a <code>sg-btn--danger</code> action and name what will be lost.</li></ul></div></details></article><article class="comp" id="c-shopitem"><header><h4>ShopItem</h4><p>One purchasable cosmetic in the shop: name, kind, preview, price or state, one button.</p></header><div class="sg-stage comp__stage" lang="tr">
+<article class="sg-item">
+  <h3 class="sg-item__name">Klasik</h3>
+  <span class="sg-item__kind">Deste</span>
+  <div class="sg-item__art"><span class="sg-cardback"></span></div>
+  <span class="sg-item__state">Kullanılıyor</span>
+  <button class="sg-btn sg-btn--confirm sg-btn--sm" disabled>Takılı</button>
+</article>
+<article class="sg-item">
+  <h3 class="sg-item__name">Lacivert</h3>
+  <span class="sg-item__kind">Deste</span>
+  <div class="sg-item__art"><span class="sg-cardback" style="background:#22386b"></span></div>
+  <span class="sg-item__price"><span class="sg-coin"></span>400</span>
+  <button class="sg-btn sg-btn--sm">Satın Al</button>
+</article>
+<article class="sg-item">
+  <h3 class="sg-item__name">Zümrüt</h3>
+  <span class="sg-item__kind">Deste</span>
+  <div class="sg-item__art"><span class="sg-cardback" style="background:#1f6b4a"></span></div>
+  <span class="sg-item__state">Senin</span>
+  <button class="sg-btn sg-btn--neutral sg-btn--sm">Tak</button>
+</article>
+</div><details><summary>Usage notes</summary><div class="prose"><p>One purchasable cosmetic in the shop: name, kind, preview, price or state, one button.</p>
+<p>Three states, each with its own button meaning:</p>
+<div class="tablewrap"><table><thead><tr><th>State</th><th>Line above button</th><th>Button</th></tr></thead><tbody><tr><td>For sale</td><td>coin + price</td><td>primary "Satın Al"</td></tr><tr><td>Owned</td><td>"Senin"</td><td>neutral "Tak"</td></tr><tr><td>Equipped</td><td>"Kullanılıyor"</td><td>confirm "Takılı", disabled</td></tr></tbody></table></div>
+<p>You provide: the item name, its kind (Deste, Masa, Çerçeve…), the preview art and the price in coins.</p>
+<p>The card is as tall as its content; don't stretch it to fill the screen. Lay items out in a grid of two columns on phones and as many as fit at 150px on wider screens. The skin colors in the preview are the items' own art, not system tokens.</p></div></details></article><article class="comp" id="c-settingsrow"><header><h4>SettingsRow</h4><p>A cream panel of settings: each row is a name, a one-line hint and exactly one control on the right.</p></header><div class="sg-stage sg-stage--stack comp__stage" lang="tr">
+<section class="sg-panel">
+  <h3 class="sg-panel__title">Oyun</h3>
+  <div class="sg-rule" aria-hidden="true"><span></span></div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Oyun sesleri</div><div class="sg-row__hint">Kart, sıra ve bitiş sesleri</div></div>
+    <button class="sg-switch" role="switch" aria-checked="true" aria-label="Oyun sesleri"></button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Bildirimler</div><div class="sg-row__hint">Davet ve günlük ödül hatırlatması</div></div>
+    <button class="sg-switch" role="switch" aria-checked="false" aria-label="Bildirimler"></button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Arkadaş kodun</div><div class="sg-row__hint">Arkadaşların seni bu kodla ekler</div></div>
+    <span class="sg-code">JJ6NLB</span>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Kurallar</div><div class="sg-row__hint">Yanık kuralları, soru-cevap</div></div>
+    <button class="sg-btn sg-btn--neutral sg-btn--sm">Aç</button>
+  </div>
+  <div class="sg-row">
+    <div class="sg-row__text"><div class="sg-row__name">Hesabımı sil</div><div class="sg-row__hint">Paran, ürünlerin ve ilerlemen kalıcı olarak silinir</div></div>
+    <button class="sg-btn sg-btn--danger sg-btn--sm">Sil</button>
+  </div>
+</section>
+
+</div><details><summary>Usage notes</summary><div class="prose"><p>A cream panel of settings: each row is a name, a one-line hint and exactly one control on the right.</p>
+<p>The control tells the player what kind of row it is:</p>
+<ul><li><code>Switch</code> for anything that is on or off.</li><li>Neutral small <code>Button</code> ("Aç") for rows that open another screen.</li><li><code>sg-code</code> chip for a value to read or copy, like the friend code.</li><li>Danger small <code>Button</code> for destructive rows, always last in the panel.</li></ul>
+<p>You provide: the panel title, and per row the name (sentence case), the hint (wraps fully, never truncated) and the control.</p>
+<p>Panels stack in one column on phones and sit two across from 720px. Maximum panel width 420px.</p></div></details></article><article class="comp" id="c-rewardtile"><header><h4>RewardTile</h4><p>One day in the seven-day login reward strip.</p></header><div class="sg-stage sg-stage--stack comp__stage" lang="tr">
+<div class="sg-rewards" style="padding-top:var(--space-2)">
+<div class="sg-reward sg-reward--claimed"><span class="sg-reward__day">1. gün</span><span class="sg-check" aria-hidden="true">✓</span><span class="sg-reward__unit">Alındı</span></div>
+<div class="sg-reward sg-reward--today"><span class="sg-reward__day">Bugün</span><span class="sg-coin sg-coin--lg"></span><span><span class="sg-reward__amount">1.000</span><br><span class="sg-reward__unit">para</span></span></div>
+<div class="sg-reward"><span class="sg-reward__day">3. gün</span><span class="sg-coin sg-coin--lg"></span><span><span class="sg-reward__amount">2.000</span><br><span class="sg-reward__unit">para</span></span></div>
+<div class="sg-reward"><span class="sg-reward__day">4. gün</span><span class="sg-coin sg-coin--lg"></span><span><span class="sg-reward__amount">4.000</span><br><span class="sg-reward__unit">para</span></span></div>
+<div class="sg-reward"><span class="sg-reward__day">5. gün</span><span class="sg-coin sg-coin--lg"></span><span><span class="sg-reward__amount">8.000</span><br><span class="sg-reward__unit">para</span></span></div>
+<div class="sg-reward"><span class="sg-reward__day">6. gün</span><span class="sg-coin sg-coin--lg" style="border-radius:var(--radius-sm)"></span><span><span class="sg-reward__amount">Yıldız</span><br><span class="sg-reward__unit">çerçeve</span></span></div>
+<div class="sg-reward"><span class="sg-reward__day">7. gün</span><span class="sg-coin sg-coin--lg" style="border-radius:var(--radius-sm)"></span><span><span class="sg-reward__amount">Taç</span><br><span class="sg-reward__unit">çerçeve</span></span></div>
+</div>
+</div><details><summary>Usage notes</summary><div class="prose"><p>One day in the seven-day login reward strip.</p>
+<p>Three states: claimed (cream inset, dashed, check mark and "Alındı"), today (red, raised) and upcoming (green). State is carried by the word and the mark as well as the color.</p>
+<p>You provide: the day label ("3. gün", or "Bugün" for today), the reward amount with its unit, and the state.</p>
+<p>The strip scrolls sideways inside its container on phones; tiles keep a fixed 72px width and are never squeezed. Place the strip inside a <code>Modal</code> or a panel with a single primary button under it ("Ödülü Al").</p></div></details></article>
+</section>
+
+<section id="guidelines">
+<h2>Guidelines</h2>
+<p>The full rules: what colors mean, type, writing, shape and behavior.</p>
+<div class="guide prose"><p>The shared menu and shell UI for every Semaver Games title: lobby, shop, settings, rewards, modals. It does not cover gameplay (the table, cards in hand, turn indicators); each game owns that.</p>
+<h4>Brand</h4>
+<ul><li>Semaver Games is the platform; each game is its own title under it. The platform logo is the tea glass on a striped saucer above the "SEMAVER GAMES" wordmark (Logos assets). Each game has its own logo on the shared red plaque (Game Logos assets).</li><li>Inside a game, the game's logo leads: lobby header, loading screen, share images. The Semaver Games mark appears small, on the splash screen and in settings or the footer.</li><li>On the platform's own surfaces (semavergames.com, the store publisher page, the game picker) the Semaver Games logo leads and game logos are the items being chosen.</li><li>Use the logo files as they are. Never retype a wordmark or redraw an emblem.</li></ul>
+<h4>How to use it</h4>
+<ul><li>Load <code>tokens.css</code>, then <code>components.css</code>, then <code>components.js</code>. Components are plain HTML with <code>sg-</code> classes; the script only draws the faceted button shape.</li><li>Read a component's README before using it. Each one says what you provide and what its colors mean.</li><li>Set <code>lang="tr"</code> on the page. Labels are uppercased by CSS, and Turkish needs it to turn <code>i</code> into <code>İ</code>.</li><li>Build for a phone held upright first (360px wide, 16px gutter from <code>space-4</code>), then let it widen. Nothing may run off the side of the screen.</li></ul>
+<h4>What the colors mean</h4>
+<p>The look is a card table: <code>bg-table</code> felt, <code>surface-panel</code> cream panels, <code>trim-gold</code> edges. On top of that, button color is a promise and never changes:</p>
+<div class="tablewrap"><table><thead><tr><th>Color</th><th>Token</th><th>Meaning</th></tr></thead><tbody><tr><td>Red</td><td><code>primary-</code> gradient</td><td>Moves the player forward: play, buy, claim, sign in. One per view.</td></tr><tr><td>Green</td><td><code>confirm-</code> gradient</td><td>A positive state or an acknowledgement: on, equipped, OK.</td></tr><tr><td>Grey-brown</td><td><code>neutral-</code> gradient</td><td>Secondary actions, opening a reference screen, the off state.</td></tr><tr><td>Outline red on cream</td><td><code>text-heading</code> border</td><td>Destructive, always confirmed in a modal.</td></tr></tbody></table></div>
+<ul><li>Text on the felt and on filled buttons is <code>text-on-dark</code>. Text on cream is <code>text-on-panel</code>, with <code>text-heading</code> for titles and <code>text-on-panel-muted</code> for hints.</li><li><code>trim-gold</code> is for borders only. For gold text on dark use <code>trim-gold-light</code>. Never set gold text on cream.</li><li><code>coin</code> is the coin face, not a text color. <code>status-online</code> is the live dot next to a player count.</li><li>Keyboard focus is a 3px <code>focus-ring</code> outline with a 2px offset on every control.</li></ul>
+<h4>Type</h4>
+<p>One family, Montserrat, in three weights (600, 700, 900), loaded from Google Fonts.</p>
+<ul><li><code>display</code>, <code>title</code>, <code>heading</code> and <code>label</code> are uppercase with a little letter spacing. Use them for names of things and for buttons.</li><li><code>body</code> and <code>caption</code> are sentence case. Anything the player reads as a sentence goes here.</li><li><code>numeric</code> is for coin amounts and prices, with tabular figures.</li></ul>
+<h4>Writing</h4>
+<ul><li>Turkish, informal second person singular: "Hediyen seni bekliyor", "İlerlemeni kaydet".</li><li>Buttons are a verb or verb phrase of one to three words: "Oyna", "Satın Al", "Ödülü Al", "Masa Kur".</li><li>Hints are one short sentence without a full stop: "Kart, sıra ve bitiş sesleri".</li><li>Numbers use the Turkish thousands dot: 1.500, 12.400. Coins are called "para" and never carry a money symbol.</li><li>Labels are never truncated. If a label does not fit, shorten the word, not the box.</li></ul>
+<h4>Shape and depth</h4>
+<ul><li>Corners: <code>radius-md</code> on buttons and tiles, <code>radius-lg</code> on panels and modals, <code>radius-xl</code> on lobby cards, <code>radius-pill</code> on pills, switches and badges, <code>radius-sm</code> on tabs and chips. No other corner sizes.</li><li>Every filled button has one finish: a three-stop vertical gradient (<code>primary-</code>, <code>confirm-</code> or <code>neutral-</code> with <code>-top</code>, <code>-mid</code>, <code>-bottom</code>), a 2px <code>trim-gold</code> border, and a 4px lip in the matching <code>-lip</code> color. It moves down 2px when pressed. No gloss, no inner lines.</li><li>The faceted button (<code>sg-btn--hex</code>) and the play banner are that same finish with pointed ends. The shape alone marks entering a game from the lobby, and it is not used anywhere else.</li><li>Panels resting on the felt use <code>shadow-card</code>; anything floating above it uses <code>shadow-panel</code>.</li><li>The diamond rule (<code>sg-rule</code>) sits under a panel or modal title, once per surface.</li></ul>
+<h4>Behavior rules</h4>
+<ul><li>One unprompted modal per session start at most. Waiting rewards show as a badge.</li><li>Every modal can be closed with its close button, Escape, or a tap outside.</li><li>A setting that is on or off is a <code>Switch</code>. A button never doubles as a state display.</li><li>The bottom nav holds at most five items.</li><li>Touch targets are at least 44px tall; small buttons (36px) are only for rows inside a panel.</li></ul>
+<h4>Themes</h4>
+<p><code>yanik</code> is the first and default theme. A new game adds a theme that overrides only the <code>primary-</code> stops and the <code>action-primary</code> family and, if it wants its own table, <code>bg-table</code> and <code>bg-table-deep</code>. Panels, text, gold, green and neutral stay the same across games so the menus feel like one platform.</p>
+<h4>Iconography and art</h4>
+<ul><li>The bottom nav uses 24px line icons, 2px stroke, round caps, in the label's color.</li><li>The suit glyphs in <code>GameCard</code> and the plain card backs in <code>ShopItem</code> are placeholders. Each game supplies its own illustrations for those slots.</li><li>The logo is the tea glass mark above the "SEMAVER GAMES" wordmark, in the Logos assets (<code>logo-stacked-on-dark.svg</code>, <code>logo-stacked-on-light.svg</code>). Use the mark on its own (<code>mark-on-dark.svg</code>, <code>mark-on-light.svg</code>) where the name is already present, and the small versions under 64px. Never retype the wordmark; use the files.</li><li>No emoji in the UI.</li></ul>
+<h4>Intentional changes from the first Yanık build</h4>
+<ul><li><code>Switch</code> replaces the Açık / Kapalı buttons in settings.</li><li>Green and red buttons now have one meaning each, as in the table above.</li><li>Seven corner sizes became five.</li><li>Playfair Display and Oswald are dropped; only Montserrat is loaded.</li><li>The bottom nav went from six items to five so labels fit on a phone.</li><li>Layout is phone-upright first.</li></ul></div>
+</section>
+
+<footer>Files: <a href="tokens.json" target="_blank" rel="noopener">tokens.json</a> · <a href="tokens.css" target="_blank" rel="noopener">tokens.css</a> · <a href="components.css" target="_blank" rel="noopener">components.css</a> · <a href="components.js" target="_blank" rel="noopener">components.js</a> · <a href="GUIDELINES.md" target="_blank" rel="noopener">GUIDELINES.md</a></footer>
+</main>
+<script src="components.js"></script>
+<script>
+  // demo behaviour for the previews
+  document.querySelectorAll('.sg-switch:not([disabled])').forEach(function (s) {
+    s.addEventListener('click', function () { s.setAttribute('aria-checked', s.getAttribute('aria-checked') === 'true' ? 'false' : 'true'); });
+  });
+  document.querySelectorAll('.sg-tabs').forEach(function (tabs) {
+    tabs.querySelectorAll('.sg-tab').forEach(function (t) {
+      t.addEventListener('click', function () { tabs.querySelectorAll('.sg-tab').forEach(function (o) { o.setAttribute('aria-selected', o === t ? 'true' : 'false'); }); });
+    });
+  });
+  // links that open in a new tab get a scripted fallback
+  document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { var w = window.open(a.href, '_blank', 'noopener'); if (w) e.preventDefault(); });
+  });
+</script>
+</body>
+</html>
