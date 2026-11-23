@@ -22,7 +22,9 @@ The look is a card table: `bg-table` felt, `surface-panel` cream panels, `trim-g
 |---|---|---|
 | Red | `primary-` gradient | Moves the player forward: play, buy, claim, sign in. One per view. |
 | Green | `confirm-` gradient | A positive state or an acknowledgement: on, equipped, OK. |
-| Grey-brown | `neutral-` gradient | Secondary actions, opening a reference screen, the off state. |
+| Gold | `secondary-` gradient | Secondary actions and opening a reference screen. Dark label (`text-on-secondary`). |
+| Muted blue | `alt-` gradient | Optional alternative for a third filled button. Use rarely, never as the main action. |
+| Grey-brown | `neutral-` and `locked-` gradients | Not an action color. Only for things that are off, unselected or locked. |
 | Outline red on cream | `text-heading` border | Destructive, always confirmed in a modal. |
 
 - Text on the felt and on filled buttons is `text-on-dark`. Text on cream is `text-on-panel`, with `text-heading` for titles and `text-on-panel-muted` for hints.
@@ -32,7 +34,7 @@ The look is a card table: `bg-table` felt, `surface-panel` cream panels, `trim-g
 
 ## Type
 
-One family, Montserrat, in three weights (600, 700, 900), loaded from Google Fonts.
+One family, Montserrat, in four weights (600, 700, 800, 900), loaded from Google Fonts. The heaviest weight, 900, is kept for large text only: the play banner, big numbers and the logos. Titles are 800 and button labels are 700, because 900 closes up and gets hard to read at small sizes.
 
 - `display`, `title`, `heading` and `label` are uppercase with a little letter spacing. Use them for names of things and for buttons.
 - `body` and `caption` are sentence case. Anything the player reads as a sentence goes here.
@@ -49,7 +51,7 @@ One family, Montserrat, in three weights (600, 700, 900), loaded from Google Fon
 ## Shape and depth
 
 - Corners: `radius-md` on buttons and tiles, `radius-lg` on panels and modals, `radius-xl` on lobby cards, `radius-pill` on pills, switches and badges, `radius-sm` on tabs and chips. No other corner sizes.
-- Every filled button has one finish: a three-stop vertical gradient (`primary-`, `confirm-` or `neutral-` with `-top`, `-mid`, `-bottom`), a 2px `trim-gold` border, and a 4px lip in the matching `-lip` color. It moves down 2px when pressed. No gloss, no inner lines.
+- Every filled button has one finish: a three-stop vertical gradient (`primary-`, `confirm-` or `secondary-` with `-top`, `-mid`, `-bottom`), a 2px `trim-gold` border, and a 4px lip in the matching `-lip` color. It moves down 2px when pressed. No gloss, no inner lines.
 - The faceted button (`sg-btn--hex`) and the play banner are that same finish with pointed ends. The shape alone marks entering a game from the lobby, and it is not used anywhere else.
 - Panels resting on the felt use `shadow-card`; anything floating above it uses `shadow-panel`.
 - The diamond rule (`sg-rule`) sits under a panel or modal title, once per surface.
@@ -79,5 +81,7 @@ One family, Montserrat, in three weights (600, 700, 900), loaded from Google Fon
 - Green and red buttons now have one meaning each, as in the table above.
 - Seven corner sizes became five.
 - Playfair Display and Oswald are dropped; only Montserrat is loaded.
+- The grey-brown secondary button is replaced by a gold one. Grey-brown now only means off, unselected or locked.
+- Titles went from weight 900 to 800, and button and tab labels from 900 to 700, for readability.
 - The bottom nav went from six items to five so labels fit on a phone.
 - Layout is phone-upright first.

@@ -21,6 +21,15 @@
   --confirm-mid: #2a6140;
   --confirm-bottom: #1b3f2a;
   --confirm-lip: #12301f;
+  --secondary-top: #f6dc98;
+  --secondary-mid: #d9b25a;
+  --secondary-bottom: #b98f3c;
+  --secondary-lip: #7d5f22;
+  --text-on-secondary: #3a2a1c;
+  --alt-top: #6fa3c4;
+  --alt-mid: #3f7499;
+  --alt-bottom: #27506e;
+  --alt-lip: #173348;
   --neutral-top: #8a7964;
   --neutral-mid: #6b5d4e;
   --neutral-bottom: #4e4337;
@@ -61,9 +70,9 @@
   --font-sans: Montserrat, "Helvetica Neue", Arial, sans-serif;
 }
 .display { font-family: var(--font-sans); font-size: 40px; line-height: 44px; font-weight: 900; letter-spacing: 0.01em; }
-.title { font-family: var(--font-sans); font-size: 24px; line-height: 28px; font-weight: 900; letter-spacing: 0.02em; }
-.heading { font-family: var(--font-sans); font-size: 17px; line-height: 22px; font-weight: 900; letter-spacing: 0.03em; }
-.label { font-family: var(--font-sans); font-size: 14px; line-height: 18px; font-weight: 900; letter-spacing: 0.05em; }
+.title { font-family: var(--font-sans); font-size: 24px; line-height: 28px; font-weight: 800; letter-spacing: 0.02em; }
+.heading { font-family: var(--font-sans); font-size: 17px; line-height: 22px; font-weight: 800; letter-spacing: 0.03em; }
+.label { font-family: var(--font-sans); font-size: 14px; line-height: 18px; font-weight: 700; letter-spacing: 0.05em; }
 .body { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 700; }
 .caption { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; }
 .numeric { font-family: var(--font-sans); font-size: 18px; line-height: 22px; font-weight: 900; }

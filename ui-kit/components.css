@@ -10,12 +10,13 @@
    Every filled button shares one finish: a three-stop vertical gradient,
    a 2px gold border and a lip in the colour's darkest shade. */
 .sg-btn, .sg-play, .sg-tab, .sg-pill__add { --btn-a: var(--primary-top); --btn-b: var(--primary-mid); --btn-c: var(--primary-bottom); --btn-l: var(--primary-lip); }
-.sg-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); font-family: var(--font-sans); font-size: 14px; line-height: 18px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-on-dark); background: linear-gradient(var(--btn-a), var(--btn-b) 55%, var(--btn-c)); border: 2px solid var(--trim-gold); border-radius: var(--radius-md); box-shadow: 0 4px 0 var(--btn-l); cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: transform 80ms ease, box-shadow 80ms ease; }
+.sg-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); font-family: var(--font-sans); font-size: 14px; line-height: 18px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-on-dark); background: linear-gradient(var(--btn-a), var(--btn-b) 55%, var(--btn-c)); border: 2px solid var(--trim-gold); border-radius: var(--radius-md); box-shadow: 0 4px 0 var(--btn-l); cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: transform 80ms ease, box-shadow 80ms ease; }
 .sg-btn:hover { filter: brightness(1.07); }
 .sg-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--btn-l); }
 .sg-btn:focus-visible, .sg-switch:focus-visible, .sg-tab:focus-visible, .sg-nav__item:focus-visible, .sg-pill__add:focus-visible, .sg-modal__close:focus-visible, .sg-card:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
 .sg-btn--confirm { --btn-a: var(--confirm-top); --btn-b: var(--confirm-mid); --btn-c: var(--confirm-bottom); --btn-l: var(--confirm-lip); }
-.sg-btn--neutral { --btn-a: var(--neutral-top); --btn-b: var(--neutral-mid); --btn-c: var(--neutral-bottom); --btn-l: var(--neutral-lip); }
+.sg-btn--secondary, .sg-btn--neutral { --btn-a: var(--secondary-top); --btn-b: var(--secondary-mid); --btn-c: var(--secondary-bottom); --btn-l: var(--secondary-lip); color: var(--text-on-secondary); border-color: var(--trim-gold-light); }
+.sg-btn--alt { --btn-a: var(--alt-top); --btn-b: var(--alt-mid); --btn-c: var(--alt-bottom); --btn-l: var(--alt-lip); }
 .sg-btn--ghost { background: transparent; color: var(--text-on-dark); box-shadow: none; }
 .sg-btn--ghost:hover { background: rgba(255, 255, 255, 0.1); filter: none; }
 .sg-btn--ghost:active { box-shadow: none; }
@@ -59,7 +60,7 @@
 
 /* ---------- Game card (lobby) ---------- */
 .sg-card { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 200px; padding: var(--space-4); background: var(--surface-panel); color: var(--text-on-panel); border: 2px solid var(--trim-gold); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); text-align: center; }
-.sg-card__title { margin: 0; font-size: 20px; line-height: 24px; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-heading); }
+.sg-card__title { margin: 0; font-size: 20px; line-height: 24px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-heading); }
 .sg-card__art { display: flex; align-items: center; justify-content: center; width: 100%; height: 88px; font-size: 44px; line-height: 1; color: var(--text-heading); }
 .sg-card__sub { margin: 0; min-height: 36px; font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-on-panel); }
 .sg-card .sg-btn { width: 100%; }
@@ -96,7 +97,7 @@
 /* ---------- Modal ---------- */
 .sg-scrim { display: flex; align-items: center; justify-content: center; width: 100%; padding: var(--space-4); background: var(--bg-table-deep); }
 .sg-modal { position: relative; display: flex; flex-direction: column; gap: var(--space-3); width: 100%; max-width: 420px; padding: var(--space-6) var(--space-4) var(--space-4); background: var(--surface-panel); color: var(--text-on-panel); border: 3px solid var(--action-primary-deep); outline: 2px solid var(--trim-gold); outline-offset: -7px; border-radius: var(--radius-lg); box-shadow: var(--shadow-panel); text-align: center; }
-.sg-modal__title { margin: 0; padding: 0 var(--space-8); font-size: 22px; line-height: 26px; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-heading); text-wrap: balance; }
+.sg-modal__title { margin: 0; padding: 0 var(--space-8); font-size: 22px; line-height: 26px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-heading); text-wrap: balance; }
 .sg-modal__body { margin: 0; font-size: 15px; line-height: 22px; font-weight: 700; color: var(--text-on-panel); }
 .sg-modal__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
 .sg-modal__actions .sg-btn { flex: 1 1 140px; }
@@ -105,12 +106,12 @@
 
 /* ---------- Tabs ---------- */
 .sg-tabs { display: flex; gap: var(--space-2); width: 100%; overflow-x: auto; padding-bottom: var(--space-1); scrollbar-width: none; }
-.sg-tab { flex: 1 0 auto; min-height: 40px; padding: 0 var(--space-4); --btn-a: var(--neutral-top); --btn-b: var(--neutral-mid); --btn-c: var(--neutral-bottom); background: linear-gradient(var(--btn-a), var(--btn-b) 55%, var(--btn-c)); color: var(--text-on-dark); border: 2px solid var(--trim-gold); border-radius: var(--radius-sm); font: 900 12px/16px var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+.sg-tab { flex: 1 0 auto; min-height: 40px; padding: 0 var(--space-4); --btn-a: var(--neutral-top); --btn-b: var(--neutral-mid); --btn-c: var(--neutral-bottom); background: linear-gradient(var(--btn-a), var(--btn-b) 55%, var(--btn-c)); color: var(--text-on-dark); border: 2px solid var(--trim-gold); border-radius: var(--radius-sm); font: 700 12px/16px var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
 .sg-tab[aria-selected="true"] { --btn-a: var(--primary-top); --btn-b: var(--primary-mid); --btn-c: var(--primary-bottom); box-shadow: inset 0 -4px 0 var(--trim-gold); }
 
 /* ---------- Shop item ---------- */
 .sg-item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); width: 150px; padding: var(--space-3); background: var(--surface-panel); color: var(--text-on-panel); border: 2px solid var(--trim-gold); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); text-align: center; }
-.sg-item__name { margin: 0; font-size: 15px; line-height: 20px; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-heading); }
+.sg-item__name { margin: 0; font-size: 15px; line-height: 20px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-heading); }
 .sg-item__kind { font-size: 10px; line-height: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-on-panel-muted); }
 .sg-item__art { display: flex; align-items: center; justify-content: center; width: 100%; padding: var(--space-2) 0; }
 .sg-item__price { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 22px; font-size: 16px; line-height: 22px; font-weight: 900; font-variant-numeric: tabular-nums; }
@@ -120,7 +121,7 @@
 
 /* ---------- Settings ---------- */
 .sg-panel { display: flex; flex-direction: column; width: 100%; max-width: 420px; padding: var(--space-4); background: var(--surface-panel); color: var(--text-on-panel); border: 2px solid var(--trim-gold); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
-.sg-panel__title { margin: 0 0 var(--space-2); font-size: 17px; line-height: 22px; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-heading); text-align: center; }
+.sg-panel__title { margin: 0 0 var(--space-2); font-size: 17px; line-height: 22px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-heading); text-align: center; }
 .sg-row { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--surface-panel-inset); }
 .sg-row:first-of-type { border-top: 0; }
 .sg-row__text { flex: 1 1 auto; min-width: 0; }
